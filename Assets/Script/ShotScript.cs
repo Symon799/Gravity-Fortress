@@ -8,11 +8,15 @@ public class ShotScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+    }
+
+    void OnCollisionEnter2D()
+    {
+        GetComponent<Rigidbody2D>().simulated = false;
+        //Destroy(gameObject);
+    }
 }

@@ -8,24 +8,27 @@ public class MoveScript : MonoBehaviour
     public Vector2 direction = new Vector2(1, 0);
     float maxGravDist = 45f;
     private GameObject[] planets;
+    private Vector3 prevPos;
+    private Vector3 currPos;
+
 
     // Use this for initialization
     void Start()
     {
         planets = GameObject.FindGameObjectsWithTag("Planet");
         GetComponent<Rigidbody2D>().AddForce(transform.right * 2500f);
+        prevPos = gameObject.transform.position;
+        currPos = gameObject.transform.position;
     }
 
     void Update()
     {
-        foreach (GameObject p in planets)
+        //Vector3 moveDirection = gameObject.transform.position - _origPos;
+        Vector3 moveDirection = GetComponent<Rigidbody2D>().velocity.normalized;
+        if (moveDirection != Vector3.zero && GetComponent<Rigidbody2D>().velocity.magnitude > 3)
         {
-
-            Quaternion rotation = Quaternion.LookRotation(planets[0].transform.position - transform.position, transform.TransformDirection(Vector3.forward));
-            transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
-            //float dist = Vector3.Distance(p.transform.position, transform.position);
-            //if (dist <= maxGravDist)
-            
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
 }
