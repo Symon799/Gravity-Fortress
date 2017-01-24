@@ -17,6 +17,6 @@ public class ShotScript : MonoBehaviour {
     void OnCollisionEnter2D()
     {
         GetComponent<Rigidbody2D>().simulated = false;
-        //Destroy(gameObject);
+        Destroy(gameObject, 1);
     }
 }

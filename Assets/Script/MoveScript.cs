@@ -25,7 +25,7 @@ public class MoveScript : MonoBehaviour
     {
         //Vector3 moveDirection = gameObject.transform.position - _origPos;
         Vector3 moveDirection = GetComponent<Rigidbody2D>().velocity.normalized;
-        if (moveDirection != Vector3.zero && GetComponent<Rigidbody2D>().velocity.magnitude > 3)
+        if (moveDirection != Vector3.zero && GetComponent<Rigidbody2D>().velocity.magnitude > 1.5f)
         {
             float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
