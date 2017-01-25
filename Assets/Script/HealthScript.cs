@@ -26,7 +26,7 @@ public class HealthScript : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         ShotScript shot = collision.gameObject.GetComponent<ShotScript>();
-        if (shot)
+        if (shot && !shot.is_land)
         {
             Damage(shot.damage);
             Destroy(shot.gameObject);
