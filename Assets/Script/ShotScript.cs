@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShotScript : MonoBehaviour {
 
     public int damage = 1;
+    public bool is_land = false;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +17,10 @@ public class ShotScript : MonoBehaviour {
 
     void OnCollisionEnter2D()
     {
-        GetComponent<Rigidbody2D>().simulated = false;
-        Destroy(gameObject, 1);
+        is_land = true;
+        GetComponent<Rigidbody2D>().fixedAngle = true;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        //GetComponent<Rigidbody2D>().simulated = false;
+        Destroy(gameObject, 5);
     }
 }

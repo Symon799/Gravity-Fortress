@@ -6,6 +6,8 @@ public class WeaponScript : MonoBehaviour {
 
     public float shootingRate = 0.5f;
     public Transform shotPrefab;
+    public int shots_left;
+    public int shots_max = 5;
 
     private float lastTimeShot;
 
@@ -22,7 +24,7 @@ public class WeaponScript : MonoBehaviour {
 
     public bool CanAttack()
     {
-        return lastTimeShot <= 0f;
+        return lastTimeShot <= 0f && shots_left > 0;
     }
 
     public void Attack ()
@@ -39,6 +41,16 @@ public class WeaponScript : MonoBehaviour {
             MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
             if (!move)
                 move.direction = this.transform.right;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ShotScript shot = collision.gameObject.GetComponent<ShotScript>();
+        if (shot && shot.is_land && shots_left < shots_max)
+        {
+            shots_left++;
+            Destroy(shot.gameObject);
         }
     }
 }
