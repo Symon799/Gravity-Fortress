@@ -9,8 +9,6 @@ public class MoveScript : MonoBehaviour
     private GameObject player;
     float maxGravDist = 45f;
     private GameObject[] planets;
-    private Vector3 prevPos;
-    private Vector3 currPos;
 
 
     // Use this for initialization
@@ -20,9 +18,6 @@ public class MoveScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         transform.position = player.transform.position;
         planets = GameObject.FindGameObjectsWithTag("Planet");
-        prevPos = gameObject.transform.position;
-        currPos = gameObject.transform.position;
-
     }
 
     void Update()

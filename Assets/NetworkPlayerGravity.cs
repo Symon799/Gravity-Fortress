@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerGravity : MonoBehaviour {
+public class NetworkPlayerGravity : NetworkBehaviour {
 
     float maxGravDist = 45f;
     public float gravity = 1.0f;
@@ -15,6 +16,8 @@ public class PlayerGravity : MonoBehaviour {
 
     void Update()
     {
+        if (!isLocalPlayer)
+            return;
         Quaternion rotation = Quaternion.LookRotation(planets[0].transform.position - transform.position, transform.TransformDirection(Vector3.forward));
         transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
         foreach (GameObject p in planets)
