@@ -20,7 +20,9 @@ public class WeaponScript : MonoBehaviour {
 	void Update () {
         if (lastTimeShot > 0)
             lastTimeShot -= Time.deltaTime;
-	}
+        if (Input.GetButtonDown("Fire1"))
+            Attack();
+    }
 
     public bool CanAttack()
     {
