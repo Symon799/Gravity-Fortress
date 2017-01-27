@@ -1,0 +1,20 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	new file:   Assets/NetworkPlayerGravity.cs
+#	new file:   Assets/NetworkPlayerGravity.cs.meta
+#	modified:   Assets/PlayerGravity.cs
+#	new file:   Assets/Prefabs/HeroMulti.prefab
+#	new file:   Assets/Prefabs/HeroMulti.prefab.meta
+#	new file:   Assets/Scenes/TestMulti.unity
+#	new file:   Assets/Scenes/TestMulti.unity.meta
+#	modified:   Assets/Script/MoveScript.cs
+#	new file:   Assets/Script/NetworkWeaponScript.cs
+#	new file:   Assets/Script/NetworkWeaponScript.cs.meta
+#	modified:   ProjectSettings/EditorBuildSettings.asset
+#
+

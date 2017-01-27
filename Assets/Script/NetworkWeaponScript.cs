@@ -16,9 +16,15 @@ public class NetworkWeaponScript : NetworkBehaviour {
 	void Start () {
         lastTimeShot = 0f;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    public override void OnStartLocalPlayer()
+    {
+        base.OnStartLocalPlayer();
+        //Use sprite for local player
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (!isLocalPlayer)
             return;
         if (lastTimeShot > 0)
